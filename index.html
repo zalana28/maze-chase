@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="base:app_id" content="69eeee7b8502c283edbf961f" />
+<title>MAZE CHASE × BASE</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.umd.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header">
+  <div>
+    <div id="title-txt">👾 MAZE CHASE</div>
+    <div id="chain-badge">⛓ BASE MAINNET</div>
+  </div>
+  <div>
+    <button id="connect-btn" onclick="enterGameFlow()">Connect Wallet</button>
+    <div id="wallet-info">
+      <div id="wallet-addr"></div>
+      <div id="wallet-bal"></div>
+      <div id="wallet-net">Base Mainnet ✓</div>
+    </div>
+  </div>
+</div>
+
+<!-- SCOREBAR -->
+<div id="scorebar">
+  <div><span class="slabel">SCORE</span><span class="sval" id="score-el">0</span></div>
+  <div><span class="slabel">HIGH</span><span class="sval" id="high-el">0</span></div>
+  <div><span class="slabel">LIVES</span><span class="sval" id="lives-el">♥♥♥</span></div>
+</div>
+
+<!-- GAME -->
+<div id="game-wrap">
+  <canvas id="gc"></canvas>
+  <div id="msg">READY!</div>
+
+  <div id="overlay">
+    <h1>MAZE CHASE</h1>
+    <div class="ov-sub">⛓ Running on Base Mainnet</div>
+    <div class="ov-hint">Arrow Keys / WASD to move</div>
+    <div class="ov-hint">Eat all dots to win!</div>
+    <div class="ov-score" id="ov-score" style="display:none"></div>
+    <button id="start-btn" onclick="enterGameFlow()">▶ CONNECT & ENTER</button>
+  </div>
+</div>
+
+<!-- D-PAD NAVIGATION -->
+<div id="dpad">
+  <!-- Row 1 -->
+  <div class="dpad-empty"></div>
+  <div class="dpad-btn" id="btn-up"    ontouchstart="dpadPress('up',true)"    ontouchend="dpadPress('up',false)"    onmousedown="dpadPress('up',true)"    onmouseup="dpadPress('up',false)">▲</div>
+  <div class="dpad-empty"></div>
+  <!-- Row 2 -->
+  <div class="dpad-btn" id="btn-left"  ontouchstart="dpadPress('left',true)"  ontouchend="dpadPress('left',false)"  onmousedown="dpadPress('left',true)"  onmouseup="dpadPress('left',false)">◀</div>
+  <div class="dpad-empty" style="border-radius:50%;background:rgba(0,20,70,0.6);border:2px solid #002299;box-shadow:0 0 8px #001166;"></div>
+  <div class="dpad-btn" id="btn-right" ontouchstart="dpadPress('right',true)" ontouchend="dpadPress('right',false)" onmousedown="dpadPress('right',true)" onmouseup="dpadPress('right',false)">▶</div>
+  <!-- Row 3 -->
+  <div class="dpad-empty"></div>
+  <div class="dpad-btn" id="btn-down"  ontouchstart="dpadPress('down',true)"  ontouchend="dpadPress('down',false)"  onmousedown="dpadPress('down',true)"  onmouseup="dpadPress('down',false)">▼</div>
+  <div class="dpad-empty"></div>
+</div>
+
+<div id="footer">
+  Mini App on <a href="https://basescan.org" target="_blank">Base Mainnet</a> | Chain ID: 8453 |
+  Built with OnchainKit concept
+</div>
+
+<!-- JS: wallet dulu, baru game (urutan penting!) -->
+<script src="js/wallet.js"></script>
+<script src="js/game.js"></script>
+
+</body>
+</html>
